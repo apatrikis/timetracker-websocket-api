@@ -4,6 +4,7 @@
  */
 package com.prodyna.pac.timetracker.websocket;
 
+import com.prodyna.pac.timetracker.cluster.ClusterMessage;
 import com.prodyna.pac.timetracker.server.event.BookingForApporvalEvent;
 import com.prodyna.pac.timetracker.server.event.BookingForReworkEvent;
 
@@ -27,4 +28,11 @@ public interface MessageBrokerAPI {
      * @param event The {@code Event} to handle.
      */
     public void sendRework(BookingForReworkEvent event);
+
+    /**
+     * Processing of a received {@link ClusterMessage}.
+     *
+     * @param message The message to handle.
+     */
+    public void receive(ClusterMessage message);
 }
